@@ -1,0 +1,682 @@
+/* Importa Montserrat do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center; /* centraliza os filhos no eixo principal vertical */
+  }
+
+  .form-area{
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+body {
+  margin: 0;
+  background: #5f5f5e;
+  font-family: 'Montserrat', sans-serif;
+  color: #2c2c2c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px;
+  overflow-y: auto;
+  background-image: url('Cenailustrada.jpg'); /* Caminho da imagem */
+  background-size: cover; /* Redimensiona para cobrir toda a área */
+  background-repeat: no-repeat; /* Evita repetição */
+  background-position: center; /* Centraliza a imagem */
+}
+body::before {
+  content: "";
+  position: fixed; /* cobre a tela inteira */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* ajuste o nível de desfoque aqui */
+  z-index: -1; /* coloca atrás de todo o conteúdo */
+}
+
+#addExperiencia, #addHabilidade {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #4225c4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addExperiencia:hover, #addHabilidade:hover {
+  background-color: #2980b9;
+}
+
+.checkbox-e-adicionar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.checkbox-e-adicionar label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Container geral */
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px; /* limita a largura máxima para grandes telas */
+  margin: 40px auto; /* centraliza horizontalmente e dá espaçamento vertical */
+  justify-content: center; /* centraliza os itens horizontalmente */
+  align-items: flex-start; /* alinha ao topo verticalmente */
+  flex-wrap: wrap; /* permite que os itens quebrem linha se não couberem */
+  box-sizing: border-box;
+}
+
+.form-area {
+  flex: 1 1 500px; /* largura base mínima de 500px e flexível */
+  max-width: 600px; /* limita o máximo que pode crescer */
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+
+/* Select estilizado */
+.form-area select {
+  background-color: #4225c4;
+  color: #e8eaed;
+  border: 1px solid #070707;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1.3rem;
+  font-family: 'Montserrat', sans-serif;
+  appearance: none;
+  font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px 16px;
+  padding-right: 36px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-area select:focus {
+  border-color: #8ab4f8;
+  outline: none;
+  background-color: #9286ca;
+}
+
+.linha-cargo-empresa {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+#descricao {
+  height: 120px;
+  resize: none;
+  overflow-y: auto;
+  border-radius: 6px;
+}
+
+.linha-cargo-empresa .campo {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.linha-cargo-empresa input {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+#addHabilidade {
+  background-color: #4225c4;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 6px;
+}
+
+/* FORMULÁRIO: estilo papel manuscrito */
+.form-area {
+  background: #f8f8f8;
+  border: 1px solid #ddd9ce;
+  border-radius: 8px;
+  padding: 25px 20px 40px 30px;
+  box-shadow: 3px 3px 10px #4225c4;
+  position: relative;
+  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+
+#listaHabilidades {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+#listaHabilidades li {
+  margin-bottom: 4px;
+}
+
+.form-area h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2.2rem;
+  color: #776e65;
+  text-shadow: 0 0 3px rgba(255 255 255 / 0.9);
+  user-select: none;
+}
+
+.styled-box {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.linha-experiencia {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.linha-experiencia label {
+  margin-right: 5px;
+  white-space: nowrap;
+}
+
+.linha-experiencia select,
+.linha-experiencia input[type="checkbox"] {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  margin: 15px 0 5px 3px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+input[type="text"],
+input[type="email"] {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 1px solid #999;
+  background: transparent;
+  outline: none;
+  padding: 6px 4px 4px 4px;
+  width: 100%;
+  color: #3c3c3c;
+  caret-color: #4225c4;
+  transition: border-color 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #4225c4;
+}
+
+input::placeholder {
+  font-style: italic;
+  color: #bbb;
+}
+
+.step {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo base para todos os botões */
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  font-weight: bold; 
+}
+
+/* Próximo */
+.next {
+  background-color: #4225c4;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .form-area{
+    flex: 1 1 100%;
+  }
+}
+
+#descricaoFormacao {
+  height: 120px;
+  resize: none;
+  overflow-y: auto;
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+
+.next:hover {
+  background-color: #331b9b;
+  transform: scale(1.02);
+}
+
+/* Voltar */
+.prev {
+  background-color: #aaa;
+  color: white;
+}
+
+.prev:hover {
+  background-color: #888;
+  transform: scale(1.02);
+}
+
+/* Enviar */
+.submit {
+  background-color: #2aa952;
+  color: white;
+}
+
+.submit:hover {
+  background-color: #228a42;
+  transform: scale(1.02);
+}
+
+.modal-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-container {
+  background: white;
+  width: 210mm;
+  height: 297mm;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  position: relative;
+  animation: slideFadeIn 0.4s ease-out;
+}
+
+.modal-close {
+  position:absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ec0909;
+  transition: color 0.3s ease;
+}
+.modal-close:hover {
+  color: #c00;
+}
+
+.modal-content-area {
+  font-family: 'Lora', serif;
+  font-size: 14pt;
+  color: #000;
+  height: calc(100% - 90px);
+  overflow-y: auto;
+  font-family: 'Lora', serif;
+}
+
+/* Botão de exportar PDF */
+.btn-export {
+  margin-top: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #4225c4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s;
+}
+.btn-export:hover {
+  background: #331b9b;
+  transform: scale(1.02);
+}
+
+/* Animações */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .modal-container {
+    width: 95vw;
+    height: 90vh;
+    padding: 20px;
+  }
+
+  .modal-content-area {
+    font-size: 12pt;
+  }
+}
+
+
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  justify-content: flex-start; /* muda de center para start para alinhar à esquerda */
+  align-items: flex-start;
+  flex-wrap: nowrap; /* não permitir quebra para manter lado a lado */
+  box-sizing: border-box;
+}
+
+.form-area {
+  flex: 1 1 600px;
+  max-width: 1000px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center; /* centraliza na vertical */
+  }
+
+  .form-area{
+    flex: 1 1 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Estilos específicos para o conteúdo do PDF */
+.modal-content-area {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 20mm;
+  font-family: 'Lora', serif;
+  color: #000;
+  background: white;
+  line-height: 1.6;
+}
+
+.modal-content-area h1 {
+  font-size: 28pt;
+  margin-bottom: 15px;
+  
+  padding-bottom: 10px;
+}
+
+.modal-content-area h2 {
+  font-size: 22pt;
+  margin: 25px 0 15px 0;
+  color: #4225c4;
+}
+
+.modal-content-area p, .modal-content-area div {
+  font-size: 14pt;
+  margin-bottom: 10px;
+}
+
+.modal-content-area ul {
+  padding-left: 20px;
+}
+
+.modal-content-area li {
+  margin-bottom: 8px;
+  font-size: 14pt;
+}
+
+/* Melhorar a qualidade da renderização para PDF */
+html2canvas-container {
+  width: 210mm !important;
+  height: 297mm !important;
+}
+
+  /*temas*/
+/* TEMA 1: Clássico Elegante */
+.curriculo-classico {
+  font-family: 'Georgia', serif;
+  background-color: #fff;
+  color: #000;
+  padding: 20mm;
+  line-height: 1.6;
+}
+.curriculo-classico h1, .curriculo-classico h2 {
+  font-weight: bold;
+  border-bottom: 1px solid #aaa;
+}
+
+/* TEMA 2: Moderno Clean */
+.curriculo-clean {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  color: #2c3e50;
+  padding: 20mm;
+}
+.curriculo-clean h1, .curriculo-clean h2 {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* TEMA 3: Minimalista Preto no Branco */
+.curriculo-minimalista {
+  font-family: 'Lato', sans-serif;
+  background-color: #fff;
+  color: #000;
+  padding: 20mm;
+}
+.curriculo-minimalista h1, .curriculo-minimalista h2 {
+  font-weight: normal;
+  border: none;
+}
+
+/* TEMA 4: Despojado Criativo */
+.curriculo-despojado {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #fffbe6;
+  color: #333;
+  padding: 20mm;
+}
+.curriculo-despojado h1, .curriculo-despojado h2 {
+  font-style: italic;
+  border-bottom: 2px dashed #ccc;
+}
+
+/* TEMA 5: Escuro Profissional */
+.curriculo-escuro {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #eee;
+  padding: 20mm;
+  font-weight: bold;
+  
+}
+.curriculo-escuro h1, .curriculo-escuro h2 {
+  font-weight: bold;
+  border-bottom: 1px solid #ececec;
+}
+
+/* Estilo base para todos os temas */
+#previewContent h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  
+}
+
+
+/* Apenas para o conteúdo do preview no modal */
+#previewContent.titulo-azul h1,
+#previewContent.titulo-azul h2,
+#previewContent.titulo-azul label {
+  color: #007BFF;
+}
+
+#previewContent.titulo-verde h1,
+#previewContent.titulo-verde h2,
+#previewContent.titulo-verde label {
+  color: #28a745;
+}
+
+#previewContent.titulo-vermelho h1,
+#previewContent.titulo-vermelho h2,
+#previewContent.titulo-vermelho label {
+  color: #dc3545;
+}
+
+#previewContent.titulo-roxo h1,
+#previewContent.titulo-roxo h2,
+#previewContent.titulo-roxo label {
+  color: #6f42c1;
+}
+
+#previewContent.titulo-preto h1,
+#previewContent.titulo-preto h2,
+#previewContent.titulo-preto label {
+  color: #000;
+}
+
+.select-estilizado {
+  background-color: #6d706d;
+  color: white;
+  margin-top: 25px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  appearance: none;          /* remove o estilo padrão */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 1rem;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3e%3cpath fill='%23fff' d='M0 0l5 6 5-6z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 10px 6px;
+  padding-right: 40px; /* espaço para a seta */
+  width: 175px;
+  height: 40px;
+}
+
+.select-estilizado:hover {
+  background-color: #301b91;
+}
+#modalPreview {
+  display: none; /* mostrar com JS */
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 9999;
+  flex-direction: column;
+  display: flex;
+}
+#modalControls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.clo

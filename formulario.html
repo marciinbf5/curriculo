@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Currículo Manuscrito Interativo</title>
+
+  <!-- Fonte cursiva estilo manuscrito -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Formulário -->
+    <section class="form-area" aria-label="Formulário para preencher currículo manuscrito">
+      <h2>Preencha seu Currículo</h2>
+
+      <form id="curriculoForm" autocomplete="off" novalidate>
+        <!-- Etapa 1 -->
+        <div class="step" data-step="1">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Ex: João Alves da Silva" />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Ex: joaoalves@gmail.com" />
+
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" />
+
+          <label for="portfolio">Seu portfólio ou Github (opcional)</label>
+          <input type="text" id="portfolio" name="portfolio" placeholder="Ex: github.com/joaoalves" />
+
+          <label for="linkedin">Seu perfil do Linkedin</label>
+          <input type="text" id="linkedin" name="linkedin" placeholder="Ex: linkedin.com/in/joao-alves-a8b" />
+
+          <label for="endereço">Endereço completo</label>
+          <input type="text" id="endereço" name="endereço" placeholder="Rua, número, bairro" />
+
+          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div style="flex: 1 1 200px;">
+              <label for="cidade">Cidade</label>
+              <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo" />
+            </div>
+
+            <div style="flex: 1 1 120px;">
+              <label for="estado">Estado</label>
+              <input type="text" id="estado" name="estado" placeholder="Ex: SP" />
+            </div>
+
+            <div style="flex: 1 1 120px;">
+              <label for="cep">CEP</label>
+              <input type="text" id="cep" name="cep" placeholder="00000-000" />
+            </div>
+          </div>
+
+          <button type="button" class="next btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 2 -->
+        <div class="step" data-step="2" style="display:none">
+          <label for="objetivo">Objetivo Profissional</label>
+          <textarea
+            id="objetivo"
+            name="objetivo"
+            placeholder="Informe seus objetivos pessoais e profissionais"
+            style="width: 100%; border-radius: 6px; height: 130px; resize: none; font-size: 1rem;"
+          ></textarea>
+
+          <label for="habilidadeInput">Habilidade</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="habilidadeInput" placeholder="Insira a habilidade e clique em adicionar" />
+            <button type="button" id="addHabilidade">Adicionar</button>
+          </div>
+          <ul id="listaHabilidades"></ul>
+
+          <div class="styled-box" style="margin-bottom: 20px;">
+            <div class="linha-cargo-empresa">
+              <div class="campo">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" placeholder="Nome da empresa" />
+              </div>
+
+              <div class="campo">
+                <label for="cargo">Cargo</label>
+                <input type="text" id="cargo" placeholder="Cargo ocupado" />
+              </div>
+            </div>
+
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" placeholder="Descreva suas atividades" style="width: 100%; margin-bottom: 10px; font-size: 1rem;"></textarea>
+
+            <div class="linha-experiencia">
+              <label for="anoInicio">Ano de Início</label>
+              <select id="anoInicio"></select>
+
+              <label for="anoFim">Ano de Término</label>
+              <select id="anoFim"></select>
+
+              <div class="checkbox-e-adicionar" style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                <label style="display: flex; align-items: center; gap: 5px;">
+                  <input type="checkbox" id="atualmenteAqui" />
+                  Atualmente trabalho aqui
+                </label>
+                <button type="button" id="addExperiencia" class="btn" style="font-weight: bold; border-radius: 10px; padding: 8px 16px;">Adicionar Experiência</button>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="prev btn">Voltar</button>
+          <button type="button" class="next btn">Próximo</button>
+        </div>
+
+        <!-- Etapa 3 -->
+        <div class="step" data-step="3" style="display:none">
+          <div class="styled-box" style="margin-bottom: 20px;">
+            <div class="linha-cargo-empresa">
+              <div class="campo">
+                <label for="instituicao">Instituição</label>
+                <input type="text" id="instituicao" placeholder="Nome da instituição" />
+              </div>
+
+              <div class="campo">
+                <label for="areaFormacao">Área de Formação</label>
+                <input type="text" id="areaFormacao" placeholder="Área de formação" />
+              </div>
+            </div>
+
+            <label for="descricaoFormacao">Descrição</label>
+            <textarea id="descricaoFormacao" placeholder="Descreva sua formação" style="width: 100%; margin-bottom: 10px;"></textarea>
+
+            <div class="linha-experiencia">
+              <label for="anoInicioFormacao">Ano de Início</label>
+              <select id="anoInicioFormacao"></select>
+
+              <label for="anoFimFormacao">Ano de Término ou Previsão</label>
+              <select id="anoFimFormacao"></select>
+
+              <div class="checkbox-e-adicionar" style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                <label style="display: flex; align-items: center; gap: 5px;">
+                  <input type="checkbox" id="atualmenteCursando" />
+                  Atualmente cursando
+                </label>
+                <button
+                  type="button"
+                  id="addFormacao"
+                  class="btn"
+                  style="background-color: #4225c4; color: white; font-weight: bold; border-radius: 10px; padding: 10px 20px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+                  Adicionar Formação
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="prev btn">Voltar</button>
+          <button type="submit" class="submit btn">Enviar</button>
+        </div>
+
+      </form>
+    </section>
+
+  </div>
+
+  <!-- Modal para visualização A4 -->
+ <div id="modalPreview" class="modal-preview" style="display: none;">
+  <div class="modal-container" style="padding: 20px; max-width: 800px; margin: auto; background: white; border-radius: 8px; position: relative;">
+    
+    <!-- Botão fechar modal -->
+    <button id="closeModal" class="modal-close" style="position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 45px; border: none; background: transparent;">✖</button>
+
+    <!-- Controles - ficam acima do conteúdo -->
+    <div id="modalControls" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; align-items: center;">
+
+      <button id="exportPdf" class="btn-export" style="padding: 6px 15px; cursor: pointer;">
+        Exportar PDF
+      </button>
+
+      <label for="seletorTema" style="font-weight: 600;">Tema:</label>
+      <select id="seletorTema" style="padding: 5px 10px;">
+        <option value="curriculo-classico">Clássico Elegante</option>
+        <option value="curriculo-clean">Moderno Clean</option>
+        <option value="curriculo-minimalista">Minimalista</option>
+        <option value="curriculo-despojado">Despojado Criativo</option>
+        <option value="curriculo-escuro">Clássico</option>
+      </select>
+
+      <label for="seletorCorTitulo" style="font-weight: 600; " >Cor do Título:</label>
+      <select id="seletorCorTitulo" style="padding: 5px 5px; width: 70px;">
+        <option value="titulo-azul">Azul</option>
+        <option value="titulo-verde">Verde</option>
+        <option value="titulo-vermelho">Vermelho</option>
+        <option value="titulo-roxo">Roxo</option>
+        <option value="titulo-preto">Preto</option>
+      </select>
+
+<div>
+  <label for="foto">Foto:</label>
+  <input type="file" id="foto" name="foto" accept="image/*">
+</div>
+
+
+
+    </div>
+
+    <!-- Conteúdo do currículo -->
+    <div id="previewContent" class="modal-content-area" style="font-family: 'Lora', serif; color: #000; line-height: 1.6;">
+      <!-- Aqui vai o conteúdo dinâmico do currículo -->
+    </div>
+    <div id="previewFotoModal"></div>
+  </div>
+</div>
+
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
