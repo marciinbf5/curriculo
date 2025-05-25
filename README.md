@@ -9,10 +9,6 @@ Este projeto é um gerador de currículo (CV) simples e funcional, construído c
 - [Descrição](#descrição)
 - [Funcionalidades](#funcionalidades)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Como Usar](#como-usar)
-- [Customização](#customização)
-- [Contribuições](#contribuições)
 - [Licença](#licença)
 
 ---
