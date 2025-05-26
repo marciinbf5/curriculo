@@ -386,19 +386,18 @@ function fecharModal() {
 
 function montarConteudoParaModal() {
   return `
-<div style="display: flex; justify-content: space-between; align-items: flex-start;">
-  <div style="font-family: 'Lora', serif; color: #000; line-height: 1.6;">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+  <div style="font-family: 'Lora', serif; color: #000; line-height: 1.6; flex: 1 1 60%;">
     <h1 style="font-size: 28pt; margin-bottom: 15px; padding-bottom: 10px;">
       ${nomeInput.value || 'Seu Nome Aqui'}
     </h1>
   </div>
-  <div>
+  <div style="flex: 1 1 30%; display: flex; justify-content: flex-end;">
     <img id="previewFoto" src="${fotoDataURL || ''}" alt="Foto do candidato" style="max-width: 150px; max-height: 150px; border-radius: 8px; margin-top: 20px; display: ${fotoDataURL ? 'block' : 'none'};">
   </div>
 </div>
 
-        
-      <div style="margin-bottom: 20px; font-size: 14pt;">
+<div style="margin-bottom: 20px; font-size: 14pt;">
   ${emailInput.value ? `<p>Email: ${emailInput.value}</p>` : ''}
   ${telefoneInput.value ? `<p>Telefone: ${telefoneInput.value}</p>` : ''}
   ${portfolioInput.value ? `<p>Portfolio: ${portfolioInput.value}</p>` : ''}
@@ -410,77 +409,81 @@ function montarConteudoParaModal() {
   }
 </div>
 
+<h2 style="font-size: 22pt; margin: 25px 0 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+  Objetivo Profissional
+</h2>
+<p style="font-size: 14pt; text-align: justify;">${objetivoInput.value || ''}</p>
 
-      <h2 style="font-size: 22pt; margin: 25px 0 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
-        Objetivo Profissional
-      </h2>
-      <p style="font-size: 14pt; text-align: justify;">${objetivoInput.value || ''}</p>
-
-      <h2 style="font-size: 22pt; margin: 25px 0 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
-        Experiências Profissionais
-      </h2>
-      ${
-        experiencias.length
-          ? experiencias
-              .map(
-                (exp) => `
-        <div style="margin-bottom: 20px;">
-          <p style="font-weight: bold; font-size: 14pt; margin-bottom: 5px;">
-            ${exp.cargo} - ${exp.empresa}
-          </p>
-          <p style="font-style: italic; margin-bottom: 5px;">
-            ${exp.inicio} - ${exp.fim}
-          </p>
-          <p style="text-align: justify; font-size: 14pt;">
-            ${exp.descricao}
-          </p>
-        </div>
-      `
-              )
-              .join('')
-          : '<p></p>'
-      }
-
-      <h2 style="font-size: 22pt; margin: 25px 0 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
-        
-      </h2>
-      ${
-        habilidades.length
-          ? `
-        <ul style="padding-left: 20px; font-size: 14pt;">
-          ${habilidades.map((h) => `<li style="margin-bottom: 8px;">${h}</li>`).join('')}
-        </ul>
-      `
-          : '<p></p>'
-      }
-
-      <h2 style="font-size: 22pt; margin: 25px 0 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
-        Formação Acadêmica
-      </h2>
-      ${
-        formacoes.length
-          ? formacoes
-              .map(
-                (f) => `
-        <div style="margin-bottom: 20px;">
-          <p style="font-weight: bold; font-size: 14pt; margin-bottom: 5px;">
-            ${f.area} - ${f.instituicao}
-          </p>
-          <p style="font-style: italic; margin-bottom: 5px;">
-            ${f.inicio} - ${f.fim}
-          </p>
-          <p style="text-align: justify; font-size: 14pt;">
-            ${f.descricao}
-          </p>
-        </div>
-      `
-              )
-              .join('')
-          : '<p></p>'
-      }
-    </div>
-  `;
+<h2 style="font-size: 22pt; margin: 25px 0 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+  Experiências Profissionais
+</h2>
+${
+  experiencias.length
+    ? experiencias
+        .map(
+          (exp) => `
+  <div style="margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 14pt; margin-bottom: 5px;">
+      ${exp.cargo} - ${exp.empresa}
+    </p>
+    <p style="font-style: italic; margin-bottom: 5px;">
+      ${exp.inicio} - ${exp.fim}
+    </p>
+    <p style="text-align: justify; font-size: 14pt;">
+      ${exp.descricao}
+    </p>
+  </div>
+`
+        )
+        .join('')
+    : '<p></p>'
 }
+
+<h2 style="font-size: 22pt; margin: 25px 0 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+  Habilidades
+</h2>
+${
+  habilidades.length
+    ? `
+  <ul style="padding-left: 20px; font-size: 14pt;">
+    ${habilidades.map((h) => `<li style="margin-bottom: 8px;">${h}</li>`).join('')}
+  </ul>
+`
+    : '<p></p>'
+}
+
+<h2 style="font-size: 22pt; margin: 25px 0 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+  Formação Acadêmica
+</h2>
+${
+  formacoes.length
+    ? formacoes
+        .map(
+          (f) => `
+  <div style="margin-bottom: 20px;">
+    <p style="font-weight: bold; font-size: 14pt; margin-bottom: 5px;">
+      ${f.area} - ${f.instituicao}
+    </p>
+    <p style="font-style: italic; margin-bottom: 5px;">
+      ${f.inicio} - ${f.fim}
+    </p>
+    <p style="text-align: justify; font-size: 14pt;">
+      ${f.descricao}
+    </p>
+  </div>
+`
+        )
+        .join('')
+    : '<p></p>'
+}
+
+<!-- Rodapé com copyright -->
+<footer style="text-align: center; padding: 30px 10px 10px; font-size: 12pt; color: #555;">
+  &copy; 2025 Marcio NBF. Todos os direitos reservados.
+</footer>
+`;
+}
+
 
 
 async function gerarPDF() {
